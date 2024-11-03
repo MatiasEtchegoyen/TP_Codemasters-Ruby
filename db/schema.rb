@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_10_27_182506) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_03_191844) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "products", force: :cascade do |t|
-    t.string "nombre"
-    t.text "descripcion"
-    t.integer "precio"
-    t.text "imagen"
+    t.string "nombre", null: false
+    t.text "descripcion", null: false
+    t.integer "precio", null: false
+    t.text "imagen", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
