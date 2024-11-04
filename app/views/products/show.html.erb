@@ -3,3 +3,9 @@
 <h2> $ <%=@product.precio %> </h2>
 <p> <%=@product.descripcion %> </p>
 <img src=<%=@product.imagen %> alt=<%=@product.descripcion %> width="250" height="250">
+
+<p><%= link_to 'Editar Producto', edit_product_path(@product.id) %></p>
+<p><%= link_to 'Eliminar Producto', product_path(@product.id), data: {
+    turbo_method: :delete,
+    turbo_confirm: 'Está seguro que desea eliminar esté producto?'
+}%></p>
