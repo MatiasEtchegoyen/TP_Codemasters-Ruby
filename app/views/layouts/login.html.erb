@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<%= stylesheet_link_tag "login", "data-turbo-track": "reload" %>
+<%= javascript_importmap_tags %>
+</head>
+<body>
+<div class="loggin-container">
+<h1>Login</h1>
+<%= form_with url: login_path, method: :post, local: true do |form| %>
+<div class="text-area-container">
+<%= form.label :username, "Nombre de Usuario" %>    
+<%= form.text_field :username, required: true, class:"nombre-usuario"%>
+<%= form.label :password, "Contraseña" %>
+<%= form.password_field :password, required: true, class:"contrasenia"%>
+</div>
+<div>
+<%= form.submit "Ingresar" %>
+</div>
+<% end %>
+ 
+        <!-- Enlace a la ruta de registro -->
+<div class="register-link">
+<p>¿No tienes cuenta? <%= link_to "Regístrate", "/registro" %></p>
+</div>
+</div>    
+</body>
+</html>
