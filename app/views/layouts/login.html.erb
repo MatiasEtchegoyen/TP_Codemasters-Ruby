@@ -7,6 +7,11 @@
 </head>
 <body>
 <div class="loggin-container">
+<div class="page-name">
+  <%= link_to products_path, class: 'page-link' do %>
+    <h1>CODE-MARKET</h1>
+  <% end %>
+</div>
 <h1>Login</h1>
 <%= form_with url: login_path, method: :post, local: true do |form| %>
 <div class="text-area-container">
