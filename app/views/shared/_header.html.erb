@@ -1,8 +1,18 @@
-<%= link_to products_path do %>
-    <h1>NombrePagina</h1>
-<% end %>
+<div class="header">
+  <%= link_to products_path do %>
+    <h1 class="page-name">CODE-MARKET</h1>
+  <% end %>
 
-<%= link_to 'Favoritos'%>
-<%= link_to 'Carrito'%>
-<%= link_to 'Iniciar Sesion', '/login' %>
-<%= link_to 'Agregar Producto', new_product_path %>
+  <div class="link-container">
+    <%= link_to 'Favoritos', '#' %>
+  </div>
+  <div class="link-container">
+    <%= link_to 'Carrito', '#' %>
+  </div>
+  <div class="link-container">
+    <%= link_to 'Iniciar Sesion', '/login' %>
+  </div>
+  <div class="link-container">
+    <%= link_to 'Agregar Producto', new_product_path, class: 'add-product' %>
+  </div>
+</div>

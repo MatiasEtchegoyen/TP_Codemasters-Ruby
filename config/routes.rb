@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "login" => "sessions#new"
   post "login" => "sessions#create"
-  get "new" => "some_controller#new"
+  get "new" => "products#new"
 
   get "/registro"=>"registrations#new", as: "registro"
     # post "/registro" => "registrations#create"
