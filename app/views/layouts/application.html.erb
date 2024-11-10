@@ -22,11 +22,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="body">  
     <%= render 'shared/flash' %>
     <%= render 'shared/header' %>
     <%= render 'carrusel/productos'%>
-
-    <%= yield %>
+    <main class="main">
+      <%= yield %>   
+    </main>
   </body>
 </html>

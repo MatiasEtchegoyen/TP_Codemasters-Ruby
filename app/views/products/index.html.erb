@@ -1,8 +1,13 @@
 <h1> Productos </h1>
 
-<% @products.each do |product| %>
-    <%= link_to product_path(product.id), class: 'product' do %>
-        <h2> <%= product.nombre %></h2>
-        <span>$ <%= product.precio %></span>
+<div class="product_content">
+    <% @products.each do |product| %>
+        <div id="products" class="product_card">
+            <%= link_to product_path(product.id), class: 'product' do %>
+                <img class="product_image" src=<%=product.imagen %> alt=<%=product.descripcion %> width="250" height="250">
+                <h2 class="product_title"> <%= product.nombre %></h2>
+                <span class="product_price">$ <%= product.precio %></span>
+            <% end %>
+        </div>
     <% end %>
-<% end %>
+</div>

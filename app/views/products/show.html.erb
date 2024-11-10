@@ -1,11 +1,22 @@
-<h1> <%=@product.nombre %> </h1>
+<div class="product_detail_container">
+  <div class="product_detail_img_container">
+    <img src="<%= @product.imagen %>" alt="<%= @product.descripcion %>" width="250" height="250">
+  </div>
+  
+  <div class="product_detail_info">
+    <h2> <%=@product.nombre %> </h2>
+    <h4 class="product_price"> Precio:<span class="product_price_span"> $<%= @product.precio %> </span></h2>
+    <p><strong>Descripción:</strong> <%= @product.descripcion %></p>
 
-<h2> $ <%=@product.precio %> </h2>
-<p> <%=@product.descripcion %> </p>
-<img src=<%=@product.imagen %> alt=<%=@product.descripcion %> width="250" height="250">
-
-<p><%= link_to 'Editar Producto', edit_product_path(@product.id) %></p>
-<p><%= link_to 'Eliminar Producto', product_path(@product.id), data: {
-    turbo_method: :delete,
-    turbo_confirm: 'Está seguro que desea eliminar esté producto?'
-}%></p>
+    <p><%= link_to 'Editar Producto', edit_product_path(@product.id) %></p>
+    <p><%= link_to 'Eliminar Producto', product_path(@product.id), data: { turbo_method: :delete, turbo_confirm: '¿Está seguro que desea eliminar este producto?' } %></p>
+  </div>
+</div>
+<div class="product_detail_footer">
+    <div class="link-container">
+        <%= link_to 'Agregar a favoritos', new_product_path, class: 'add-favorites' %>
+    </div>
+    <div class="link-container">
+        <%= link_to 'Agregar al carrito', new_product_path, class: 'add-product-cart' %>
+    </div>
+</div>

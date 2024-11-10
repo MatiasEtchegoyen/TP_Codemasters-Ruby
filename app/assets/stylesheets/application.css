@@ -8,3 +8,19 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ .main{
+    margin-top: 2rem;
+    padding-left: 2rem; 
+    padding-right: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+ .body {
+    background: linear-gradient(to bottom, #f0f4f8, #d9e2ec, #bcccdc);
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    
+}
