@@ -1,5 +1,16 @@
 <h1> Productos </h1>
 
+
+<%= form_with url: products_path, method: :get, local: true do |form| %>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <label for="ordenar_por">Ordenar por:</label>
+    <%= form.select :ordenar_por, 
+    options_for_select(options_for_select(Product::ORDENAR_POR.keys.map { |key| [key.to_s.humanize.titleize, key] }, 
+    params[:ordenar_por])), { id: "ordenar_por" } %>
+    <%= form.submit 'Ordenar', style: "padding: 3px 8px; font-size: 0.8em; width: auto;" %>
+  </div>
+<% end %>
+
 <div class="product_content">
     <% @products.each do |product| %>
         <div id="products" class="product_card">

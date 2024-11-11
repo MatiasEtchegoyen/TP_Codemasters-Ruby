@@ -1,13 +1,20 @@
 class ProductsController < ApplicationController
     def index
         @products = Product.all
+
+        ordenar_por = Product::ORDENAR_POR.fetch(params[:ordenar_por]&.to_sym, Product::ORDENAR_POR[:recientes])
+        
+        @products = @products.order(ordenar_por)
     end
+
     def show
         @product = Product.find(params[:id])
     end
+
     def new
         @product = Product.new
     end
+
     def create
         @product = Product.new(product_params) 
         if @product.save

@@ -1,27 +1,94 @@
 <h1> Editar Producto </h1>
 
-<%= form_with model: @product do |form| %>
-    <%= @product.errors.full_messages.each do |error| %>
-        <div>
-            <%= error%>
-        </div>
-    <% end %>
-    <div>
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
-    </div>
-    <div>
-    <%= form.label :descripcion %>
-    <%= form.text_area :descripcion %>
-    </div>
-    <div>
-    <%= form.label :precio %>
-    <%= form.number_field :precio %>
-    </div>
-    <div>
-    <%= form.label :imagen %>
-    <%= form.text_field :imagen %>
+<%= form_with model: @product, class: "form-container" do |form| %>
+    <div class="error-messages">
+        <%= @product.errors.full_messages.each do |error| %>
+            <div class="error-message">
+                <%= error %>
+            </div>
+        <% end %>
     </div>
 
-    <%= form.submit %>
+    <div class="form-group">
+        <%= form.label :nombre, class: "form-label" %>
+        <%= form.text_field :nombre, class: "form-input" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :descripcion, class: "form-label" %>
+        <%= form.text_area :descripcion, class: "form-textarea" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :precio, class: "form-label" %>
+        <%= form.number_field :precio, class: "form-input" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :imagen, class: "form-label" %>
+        <%= form.text_field :imagen, class: "form-input" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.submit "Guardar Producto", class: "form-submit" %>
+    </div>
 <% end %>
+
+<style>
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+
+  .error-messages {
+    color: #d9534f;
+    margin-bottom: 15px;
+  }
+
+  .error-message {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-textarea {
+    height: 100px;
+  }
+
+  .form-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .form-submit:hover {
+    background-color: #4cae4c;
+  }
+</style>
