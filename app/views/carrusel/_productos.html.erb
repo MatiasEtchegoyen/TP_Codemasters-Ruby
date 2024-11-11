@@ -1,17 +1,18 @@
-<h2>Productos Destacados</h2>
+
+<h2 class="products-title">Productos Destacados</h2>
 <div class="products-list">
-<div class="products-list-wrapper">
-<% productos = [
-      { nombre: "Celular", descripcion: "Última tecnología", imagen: "iphone15.jpeg" },
-      { nombre: "Perfume", descripcion: "Fragancia exclusiva", imagen: "phantom.jpeg" },
-      { nombre: "Computadora", descripcion: "Alta potencia", imagen: "macbook.jpeg" },
-      { nombre: "Celular", descripcion: "Última tecnología", imagen: "iphone15.jpeg" },
-      { nombre: "Perfume", descripcion: "Fragancia exclusiva", imagen: "phantom.jpeg" },
-      { nombre: "Computadora", descripcion: "Alta potencia", imagen: "macbook.jpeg" }
-    ] %>
- 
-    <% productos.each do |producto| %>
-<%= render partial: "shared/producto_destacado", locals: { producto: producto } %>
-<% end %>
+  <div class="products-list-wrapper">
+  <% productos = [
+        { nombre: "Celular", descripcion: "Última tecnología", imagen: "iphone15.jpeg" },
+        { nombre: "Perfume", descripcion: "Fragancia exclusiva", imagen: "phantom.jpeg" },
+        { nombre: "Computadora", descripcion: "Alta potencia", imagen: "macbook.jpeg" },
+        { nombre: "Celular", descripcion: "Última tecnología", imagen: "iphone15.jpeg" },
+        { nombre: "Perfume", descripcion: "Fragancia exclusiva", imagen: "phantom.jpeg" },
+        { nombre: "Computadora", descripcion: "Alta potencia", imagen: "macbook.jpeg" }
+      ] %>
+  
+      <% productos.each do |producto| %>
+  <%= render partial: "shared/producto_destacado", locals: { producto: producto } %>
+  <% end %>
 </div>
 </div>

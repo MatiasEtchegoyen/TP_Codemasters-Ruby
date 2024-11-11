@@ -9,6 +9,15 @@
     font-size: 32px;
     font-weight: bold;
 }
+.carrusel-container{
+    align-content: center;
+}
+.products-title {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px 0;
+    /* color: #003366; Azul oscuro para un diseño confiable */
+  }
  
 /* Contenedor de la lista de productos */
 .products-list {
@@ -78,7 +87,7 @@
 }
  
 .product-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-15px);
 }
  
 .product-card button:hover {
