@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
     def index
         @products = Product.all
 
-        ordenar_por = Product::ORDENAR_POR.fetch(params[:ordenar_por]&.to_sym, Product::ORDENAR_POR[:recientes])
+        ordenar_por = Product::ORDENAR_POR.fetch(params[:ordenar_por]&.to_sym, Product::ORDENAR_POR[:mas_recientes])
         
         @products = @products.order(ordenar_por)
     end

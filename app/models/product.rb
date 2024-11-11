@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
     ORDENAR_POR = {
-        recientes: "created_at DESC",
+        mas_recientes: "created_at DESC",
+        mas_antiguos: "created_at ASC",
         menor_precio: "precio ASC",
         mayor_precio: "precio DESC"
     }
