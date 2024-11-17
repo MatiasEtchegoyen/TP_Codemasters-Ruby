@@ -1,22 +1,27 @@
+<div class="link-container">
+  <%= link_to 'Volver', :products, class: 'add-product-cart' %>
+</div>
 <div class="product_detail_container">
   <div class="product_detail_img_container">
     <img src="<%= @product.imagen %>" alt="<%= @product.descripcion %>" width="250" height="250">
   </div>
-  
   <div class="product_detail_info">
     <h2> <%=@product.nombre %> </h2>
     <h4 class="product_price"> Precio:<span class="product_price_span"> $<%= @product.precio %> </span></h2>
     <p><strong>Descripción:</strong> <%= @product.descripcion %></p>
-
-    <p><%= link_to 'Editar Producto', edit_product_path(@product.id) %></p>
-    <p><%= link_to 'Eliminar Producto', product_path(@product.id), data: { turbo_method: :delete, turbo_confirm: '¿Está seguro que desea eliminar este producto?' } %></p>
+    <% if current_admin %> 
+      <p><%= link_to 'Editar Producto', edit_product_path(@product.id) %></p>
+      <p><%= link_to 'Eliminar Producto', product_path(@product.id), data: { turbo_method: :delete, turbo_confirm: '¿Está seguro que desea eliminar este producto?' } %></p>
+    <% end %>
   </div>
 </div>
-<div class="product_detail_footer">
-    <div class="link-container">
-        <%= link_to 'Agregar a favoritos', new_product_path, class: 'add-favorites' %>
-    </div>
-    <div class="link-container">
-        <%= link_to 'Agregar al carrito', new_product_path, class: 'add-product-cart' %>
-    </div>
-</div>
+<% if !current_admin %> 
+  <div class="product_detail_footer">
+      <div class="link-container">
+          <%= link_to 'Agregar a favoritos', new_product_path, class: 'add-favorites' %>
+      </div>
+      <div class="link-container">
+          <%= link_to 'Agregar al carrito', new_product_path, class: 'add-product-cart' %>
+      </div>
+  </div>
+<% end %> 

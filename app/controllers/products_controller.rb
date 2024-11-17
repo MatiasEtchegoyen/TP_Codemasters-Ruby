@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+    before_action :check_admin, except: ["index", "show"]
     def index
         @products = Product.all
 

@@ -12,6 +12,7 @@
 <% end %>
 
 <div class="product_content">
+
     <% @products.each do |product| %>
         <div id="products" class="product_card">
             <%= link_to product_path(product.id), class: 'product' do %>
