@@ -6,11 +6,19 @@
   <div class="link-container">
     <%= link_to 'Favoritos', '#' %>
   </div>
-  <div class="link-container">
-    <%= link_to 'Carrito', '#' %>
-  </div>
+
+  <%= link_to cart_path(@current_cart.secret_id) do %>
+    <div class="link-container-cart">
+      <%= image_tag("carrito-de-compras.png") %>
+      <% if @current_cart && @current_cart.cart_items.any? %>
+        <span class="span_carrito">
+          <%= @current_cart.cart_items.count %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="link-container">
     <%= link_to 'Iniciar Sesion', '/login' %>
   </div>
-  
 </div>

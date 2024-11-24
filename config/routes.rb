@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admins
   resource :admin, only: [:show], controller: :admin
+  resources :carts, only: [:create, :show]
   get "registrations/new"
   get "registrations/create"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

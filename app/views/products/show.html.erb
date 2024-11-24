@@ -21,7 +21,7 @@
           <%= link_to 'Agregar a favoritos', new_product_path, class: 'add-favorites' %>
       </div>
       <div class="link-container">
-          <%= link_to 'Agregar al carrito', new_product_path, class: 'add-product-cart' %>
+        <%= render "add_to_cart", product: @product %>
       </div>
   </div>
 <% end %> 

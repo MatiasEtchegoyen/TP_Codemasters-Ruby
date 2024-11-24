@@ -11,4 +11,5 @@ class Product < ApplicationRecord
     validates :descripcion, presence: true
     validates :precio, presence: true
     validates :imagen, presence: true
+    has_many :cart_items
 end
