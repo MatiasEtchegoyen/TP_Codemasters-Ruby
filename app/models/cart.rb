@@ -1,6 +1,6 @@
 class Cart < ApplicationRecord
     before_create :set_secret_id
-    has_many :cart_items
+    has_many :cart_items, dependent: :destroy
     has_many :products, through: :cart_items
 
     private

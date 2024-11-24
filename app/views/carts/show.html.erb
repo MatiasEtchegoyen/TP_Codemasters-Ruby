@@ -5,13 +5,15 @@
         <div class= "cart_card">
             <p class="product_name"><%= product.nombre %></p>
             <p class="product_price"><%= number_to_currency product.precio %></p>
+            <%= link_to "Eliminar", cart_path(@current_cart.secret_id, product_id: product.id), class:"cart_button", data: {turbo_method: "delete"} %>
         </div>
+        
     <% end %>
     <p class="cart_total"> Total: $<%= @current_cart.products.sum(&:precio) %> </p>
     <div class= "cart_checkout">
         <% if @current_cart.cart_items.any? %>
             <p class="cart_subtitle"> Hay <%= @current_cart.cart_items.count %> productos en el carrito. </p>
-            <%= link_to "Comprar", "#", class:"cart_button" %>
+            <%= link_to "Comprar", checkout_cart_path(@current_cart.secret_id), class:"cart_button" %>
         <% else %>
             <p> No hay productos en el carrito. </p>
         <% end %>
