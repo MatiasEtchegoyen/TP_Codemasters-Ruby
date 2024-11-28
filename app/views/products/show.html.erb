@@ -18,10 +18,15 @@
 <% if !current_admin %> 
   <div class="product_detail_footer">
       <div class="link-container">
-          <%= link_to 'Agregar a favoritos', new_product_path, class: 'add-favorites' %>
+          <% if Favorite.exists?(product: @product) %>
+            <%= link_to 'Eliminar de Favoritos', favorite_path(Favorite.find_by(product: @product)), data: { turbo_method: :delete }, class: 'add-favorites'%>
+          <% else %>
+            <%= link_to 'Añadir a Favoritos', favorites_path(favorite: { product_id: @product.id }), data: { turbo_method: :post }, class: 'add-favorites'%>
+          <% end %>
       </div>
       <div class="link-container">
         <%= render "add_to_cart", product: @product %>
       </div>
   </div>
-<% end %> 
+<% end %>
+

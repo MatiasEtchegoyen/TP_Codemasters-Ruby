@@ -1,0 +1,16 @@
+<div class='cart'>
+  <h1 class="cart_title">Favoritos</h1>
+
+  <% @favorites.each do |favorite| %>
+    <div class="cart_card">
+      <p class="product_name"><%= favorite.product.nombre %></p>
+      <p class="product_price"><%= number_to_currency favorite.product.precio %></p>
+      <%= link_to 'Ver Producto', product_path(favorite.product), class: 'cart_button' %>
+      <%= link_to "Eliminar", favorite_path(favorite), class: "cart_button", data: { turbo_method: "delete" } %>
+    </div>
+  <% end %>
+
+  <% if @favorites.empty? %>
+    <p>No tienes productos marcados como favoritos.</p>
+  <% end %>
+</div>

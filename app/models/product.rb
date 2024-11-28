@@ -12,4 +12,5 @@ class Product < ApplicationRecord
     validates :precio, presence: true
     validates :imagen, presence: true
     has_many :cart_items
+    has_many :favorites, dependent: :destroy
 end

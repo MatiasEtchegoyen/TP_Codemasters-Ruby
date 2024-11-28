@@ -67,3 +67,5 @@ end
 gem "devise", "~> 4.9"
 
 gem "tailwind_devise", "~> 0.0.3"
+
+gem 'will_paginate', '~> 3.3'

@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
     before_action :check_admin, except: ["index", "show"]
     def index
-        @products = Product.all
+        @products = Product.all.paginate(page: params[:page], per_page: 10)
 
         ordenar_por = Product::ORDENAR_POR.fetch(params[:ordenar_por]&.to_sym, Product::ORDENAR_POR[:mas_recientes])
         
