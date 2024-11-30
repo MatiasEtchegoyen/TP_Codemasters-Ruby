@@ -95,3 +95,12 @@
         margin-top: 5px;
     }
 }
+.iniciar_sesion_cart{
+    margin: auto;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 20px;
+}

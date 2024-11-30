@@ -13,10 +13,15 @@ class ApplicationController < ActionController::Base
   
   def set_current_cart
     if session[:current_cart_id]
-        @current_cart = Cart.find_by_secret_id(session[:current_cart_id])
+      @current_cart = Cart.find_by_secret_id(session[:current_cart_id])
+      if current_purchaser && !@current_cart.purchaser
+        @current_cart.update(purchaser_id: current_purchaser.id)
+      end
     else
-        @current_cart = Cart.create
+      if current_purchaser && current_purchaser.carts.any?
+        @current_cart = current_purchaser.carts.last
         session[:current_cart_id] = @current_cart.secret_id
-    end
-end
+      end
+    end 
+  end
 end

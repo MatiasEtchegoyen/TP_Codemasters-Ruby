@@ -7,7 +7,7 @@
     <%= link_to 'Favoritos', '/favorites' %>
   </div>
 
-  <%= link_to cart_path(@current_cart.secret_id) do %>
+  <%= link_to cart_path do %>
     <div class="link-container-cart">
       <%= image_tag("carrito-de-compras.png") %>
       <% if @current_cart && @current_cart.cart_items.any? %>
@@ -19,6 +19,11 @@
   <% end %>
 
   <div class="link-container">
-    <%= link_to 'Iniciar Sesion', '/login' %>
+    <% if current_purchaser %>
+      <%= link_to 'Cerrar Sesion', destroy_purchaser_session_path, data: {turbo_method: :delete} %>
+    <% else %>
+      <%= link_to 'Iniciar Sesion', new_purchaser_session_path %>
+      <%= link_to 'Registro', new_purchaser_registration_path %>
+    <% end %>
   </div>
 </div>

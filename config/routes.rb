@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :purchasers
   devise_for :admins
   resource :admin, only: [:show], controller: :admin
-  resources :carts, only: [:create, :show, :destroy] do
-    get "checkout", on: :member, to: "carts#checkout"
+  resource :cart, only: [:show, :destroy, :create] do
+    get "checkout", on: :collection, to: "carts#checkout"
   end
   get "registrations/new"
   get "registrations/create"

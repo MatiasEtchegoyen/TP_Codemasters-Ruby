@@ -1,5 +1,5 @@
 <% if @current_cart && @current_cart.products.where(id: @product.id).any? %>
     <span> Ya se encuentra en el carrito </span>
 <% else %>
-    <%= link_to "Agregar al carrito", carts_path(product_id: @product.id), class: 'add-favorites',  data: { turbo_method: "post" } %>
+    <%= link_to "Agregar al carrito", cart_path(product_id: @product.id), class: 'add-favorites',  data: { turbo_method: "post" } %>
 <% end %>
