@@ -33,6 +33,8 @@
         <%= link_to 'Iniciar Sesion', login_selection_path %>
         <%= link_to 'Registro', new_purchaser_registration_path %>
       <% end %>
-    <% end %>
+    <%else%>
+    <%= link_to 'Cerrar Sesion', destroy_admin_session_path, data: {turbo_method: :delete} %>
+    <%end%>
   </div>
 </div>
