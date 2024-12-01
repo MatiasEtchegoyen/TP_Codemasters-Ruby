@@ -3,12 +3,10 @@ class FavoritesController < ApplicationController
 
   def index
     @favorites = current_purchaser.favorites.includes(:product)
-    #@favorites = Favorite.includes(:product).all
   end
 
   def create
     @favorite = current_purchaser.favorites.new(favorite_params)
-    #@favorite = Favorite.new(favorite_params)
 
     if @favorite.save
       redirect_to @favorite.product
@@ -19,7 +17,6 @@ class FavoritesController < ApplicationController
 
   def destroy
     @favorite = current_purchaser.favorites.find(params[:id])
-    #@favorite = Favorite.find(params[:id])
     @favorite.destroy
     redirect_to request.referrer || products_path
   end
