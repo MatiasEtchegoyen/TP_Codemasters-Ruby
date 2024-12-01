@@ -22,8 +22,8 @@
 <% if !current_admin %> 
   <div class="product_detail_footer">
       <div class="link-container">
-          <% if Favorite.exists?(product: @product) %>
-            <%= link_to 'Eliminar de Favoritos', favorite_path(Favorite.find_by(product: @product)), data: { turbo_method: :delete }, class: 'add-favorites'%>
+          <% if current_purchaser.favorites.exists?(product: @product) %>
+            <%= link_to 'Eliminar de Favoritos', favorite_path(current_purchaser.favorites.find_by(product: @product)), data: { turbo_method: :delete }, class: 'add-favorites'%>
           <% else %>
             <%= link_to 'Añadir a Favoritos', favorites_path(favorite: { product_id: @product.id }), data: { turbo_method: :post }, class: 'add-favorites'%>
           <% end %>
