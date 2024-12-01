@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :favorites, only: [:index, :create, :destroy]
 
     resources :products
+    get '/login_selection', to: 'sessions#selection', as: 'login_selection'
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest

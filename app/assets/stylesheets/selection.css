@@ -1,0 +1,39 @@
+/* Styles for the Selection Page */
+.selection-container {
+    max-width: 600px;
+    margin: 80px auto; /* Centra el contenedor horizontalmente y agrega espacio arriba y abajo */
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: center; /* Centra el contenido dentro del contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selection-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 30px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los botones */
+}
+
+.selection-button {
+    background-color: #00509e;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.selection-button:hover {
+    background-color: #003366;
+    color: white;
+}
