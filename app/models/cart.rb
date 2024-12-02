@@ -1,4 +1,5 @@
 class Cart < ApplicationRecord
+    belongs_to :purchaser, optional: true
     before_create :set_secret_id
     has_many :cart_items, dependent: :destroy
     has_many :products, through: :cart_items

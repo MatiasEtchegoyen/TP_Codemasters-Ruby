@@ -1,5 +1,9 @@
 <div class="link-container">
-  <%= link_to 'Volver', :products, class: 'add-product-cart' %>
+  <% if !current_admin %>
+    <%= link_to 'Volver', :products, class: 'add-product-cart' %>
+  <% else %>
+      <%= link_to 'Volver', :admin, class: 'add-product-cart' %>
+  <% end %>
 </div>
 <div class="product_detail_container">
   <div class="product_detail_img_container">
@@ -10,16 +14,16 @@
     <h4 class="product_price"> Precio:<span class="product_price_span"> $<%= @product.precio %> </span></h2>
     <p><strong>Descripción:</strong> <%= @product.descripcion %></p>
     <% if current_admin %> 
-      <p><%= link_to 'Editar Producto', edit_product_path(@product.id) %></p>
-      <p><%= link_to 'Eliminar Producto', product_path(@product.id), data: { turbo_method: :delete, turbo_confirm: '¿Está seguro que desea eliminar este producto?' } %></p>
+      <p><%= link_to 'Editar Producto', edit_product_path(@product.id), class: 'abm-product' %></p>
+      <p><%= link_to 'Eliminar Producto', product_path(@product.id), class: 'abm-product', data: { turbo_method: :delete, turbo_confirm: '¿Está seguro que desea eliminar este producto?' } %></p>
     <% end %>
   </div>
 </div>
 <% if !current_admin %> 
   <div class="product_detail_footer">
       <div class="link-container">
-          <% if Favorite.exists?(product: @product) %>
-            <%= link_to 'Eliminar de Favoritos', favorite_path(Favorite.find_by(product: @product)), data: { turbo_method: :delete }, class: 'add-favorites'%>
+          <% if purchaser_signed_in? and current_purchaser.favorites.exists?(product: @product) %>
+            <%= link_to 'Eliminar de Favoritos', favorite_path(current_purchaser.favorites.find_by(product: @product)), data: { turbo_method: :delete }, class: 'add-favorites'%>
           <% else %>
             <%= link_to 'Añadir a Favoritos', favorites_path(favorite: { product_id: @product.id }), data: { turbo_method: :post }, class: 'add-favorites'%>
           <% end %>
@@ -29,4 +33,3 @@
       </div>
   </div>
 <% end %>
-

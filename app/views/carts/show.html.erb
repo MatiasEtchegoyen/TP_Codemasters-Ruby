@@ -1,22 +1,28 @@
 <div class='cart'>
     <h1 class="cart_title"> Carrito de compras </h1>
-
-    <% @current_cart.products.each do |product| %>
-        <div class= "cart_card">
-            <p class="product_name"><%= product.nombre %></p>
-            <p class="product_price"><%= number_to_currency product.precio %></p>
-            <%= link_to "Eliminar", cart_path(@current_cart.secret_id, product_id: product.id), class:"cart_button", data: {turbo_method: "delete"} %>
-        </div>
-        
+    <% if @current_cart&.products&.any? %>
+        <% @current_cart.products.each do |product| %>
+            <div class= "cart_card">
+                <p class="product_name"><%= product.nombre %></p>
+                <p class="product_price"><%= number_to_currency product.precio %></p>
+                <%= link_to "Eliminar", cart_path(product_id: product.id), class:"cart_button", data: {turbo_method: "delete"} %>
+            </div>
+        <% end %>   
     <% end %>
     <p class="cart_total"> Total: $<%= @current_cart.products.sum(&:precio) %> </p>
     <div class= "cart_checkout">
-        <% if @current_cart.cart_items.any? %>
+        <% if @current_cart&.cart_items&.any? %>
             <p class="cart_subtitle"> Hay <%= @current_cart.cart_items.count %> productos en el carrito. </p>
-            <%= link_to "Comprar", checkout_cart_path(@current_cart.secret_id), class:"cart_button" %>
+            <% if @current_cart&.cart_items&.any? %>
+                <%= link_to "Comprar", checkout_cart_path, class:"cart_button" %>
+            <% else %>
+                <%= content_tag :div, "Comprar", class:"cart_button" %>
+            <% end %>
         <% else %>
             <p> No hay productos en el carrito. </p>
         <% end %>
     </div>
-    
+    <% if !@current_purchaser %>
+        <%= link_to "Iniciar sesion para guardar el carrito", new_purchaser_session_path, class: 'iniciar_sesion_cart' %>
+    <% end %>
 </div>
