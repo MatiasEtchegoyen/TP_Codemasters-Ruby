@@ -1,13 +1,14 @@
-<h1> Productos </h1>
+<h1 class="products-title"> Productos </h1>
 
 
-<%= form_with url: products_path, method: :get, local: true do |form| %>
-  <div style="display: flex; align-items: center; gap: 10px;">
+<%= form_with url: products_path, method: :get, local: true, class: 'order-form' do |form| %>
+  <div class="order-form-container">
     <label for="ordenar_por">Ordenar por:</label>
     <%= form.select :ordenar_por, 
-    options_for_select(options_for_select(Product::ORDENAR_POR.keys.map { |key| [key.to_s.humanize.titleize, key] }, 
-    params[:ordenar_por])), { id: "ordenar_por" } %>
-    <%= form.submit 'Ordenar', style: "padding: 3px 8px; font-size: 0.8em; width: auto;" %>
+      options_for_select(Product::ORDENAR_POR.keys.map { |key| [key.to_s.humanize.titleize, key] }, params[:ordenar_por]), 
+      {}, 
+      class: 'order-select', id: 'ordenar_por' %>
+    <%= form.submit 'Ordenar', class: 'order-button' %>
   </div>
 <% end %>
 

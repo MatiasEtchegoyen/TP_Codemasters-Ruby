@@ -49,3 +49,80 @@
     opacity: 0.5;
     pointer-events: none;
 }
+
+.products-title{
+    font-family: 'Poppins', sans-serif;  
+    font-size: 3rem;                  
+    font-weight: 600;                 
+    text-align: center;                 
+    color: #333;                       
+    text-transform: uppercase;         
+    letter-spacing: 2px;               
+    margin-bottom: 20px;                
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+  .order-form .order-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  .order-form .order-select {
+    padding: 5px 10px;
+    font-size: 0.8em; 
+    height: 36px; 
+    width: 130px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .order-form .order-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  .order-form-container {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Espacio entre elementos */
+    justify-content: flex-start; /* Alineación uniforme */
+  }
+  
+  .order-form-container label {
+    font-weight: bold;
+    color: #333; /* Color más legible */
+  }
+  .order-form-container {
+    padding: 15px;
+    border-radius: 8px;
+    display: inline-block; /* Solo ocupa el espacio necesario */
+    width: fit-content; /* Ajusta el ancho al contenido */
+    margin: 20px auto; /* Centra el contenedor horizontalmente */
+  }
+  
+    
+
+  .order-form .order-button {
+    background-color: #007bff; /* Azul claro */
+    color: white;
+    padding: 5px 10px; /* Reducir padding */
+    font-size: 0.8em; /* Fuente más pequeña */
+    font-weight: 500;
+    border: none;
+    border-radius: 4px; /* Bordes suaves pero pequeños */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: auto; /* Se adapta al contenido */
+    height: 36px; /* Altura fija para mantener consistencia */
+  }
+  
+  .order-form .order-button:hover {
+    background-color: #0056b3; /* Azul más oscuro en hover */
+    transform: translateY(-1px); /* Menos pronunciado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hover más sutil */
+  }
+  

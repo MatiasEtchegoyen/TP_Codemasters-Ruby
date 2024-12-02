@@ -1,30 +1,26 @@
-/* Contenedor del header */
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    border-bottom: 2px solid #d0dbe8; /* Línea de separación */
-    box-shadow: 0 2px 4px rgba(0, 51, 102, 0.1); /* Sombra suave en azul oscuro */
+    border-bottom: 2px solid #d0dbe8; 
+    box-shadow: 0 2px 4px rgba(0, 51, 102, 0.1); 
   }
   
-  /* Título de la página */
   .header .page-name {
     font-size: 1.8em;
-    color: #003366; /* Azul oscuro */
+    color: #003366;
     margin: 0;
     text-decoration: none;
     font-weight: 700;
   }
   
-  /* Contenedor de los links */
   .link-container {
     margin-left: 20px;
   }
-  
-  /* Estilos para los links */
+
   .header a {
-    color: #003366; /* Azul oscuro */
+    color: #003366;
     text-decoration: none;
     font-weight: 500;
     font-size: 1em;
@@ -33,25 +29,24 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  /* Estilos de hover para enlaces */
   .header a:hover {
-    background-color: #dbe9f5; /* Fondo azul suave en hover */
-    color: #00509e; /* Azul intermedio en hover */
+    background-color: #dbe9f5; 
+    color: #00509e;
     font-weight: 600;
+    
   }
+
   
-  /* Estilo para "Agregar Producto" en un tono azul más visible */
   .header a.add-product {
-    background-color: #00509e; /* Azul intermedio */
+    background-color: #00509e; 
     color: white;
     padding: 8px 16px;
     font-weight: 600;
     border-radius: 6px;
   }
   
-  /* Hover del botón de "Agregar Producto" */
   .header a.add-product:hover {
-    background-color: #003366; /* Azul oscuro en hover */
+    background-color: #003366; 
     color: white;
   }
 
