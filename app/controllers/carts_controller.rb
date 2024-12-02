@@ -14,6 +14,7 @@ class CartsController < ApplicationController
     def checkout 
         if @current_cart&.cart_items&.any?
             session[:current_cart_id] = nil
+            @current_cart.cart_items.destroy_all
             redirect_to :products, notice: 'Compra realizada con exito! Gracias!'
         else
             redirect_to :products, notice: 'No hay productos en el carrito!'

@@ -9,7 +9,7 @@
             </div>
         <% end %>   
     <% end %>
-    <p class="cart_total"> Total: $<%= @current_cart.products.sum(&:precio) %> </p>
+    <p class="cart_total"> Total: $<%= @current_cart&.products&.sum(&:precio) %> </p>
     <div class= "cart_checkout">
         <% if @current_cart&.cart_items&.any? %>
             <p class="cart_subtitle"> Hay <%= @current_cart.cart_items.count %> productos en el carrito. </p>
