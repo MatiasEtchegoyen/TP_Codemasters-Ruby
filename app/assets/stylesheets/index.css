@@ -11,7 +11,7 @@
 }
 
 .product_card:hover {
-    transform: scale(1.05); /* Efecto de agrandamiento al pasar el ratón */
+    transform: scale(1.05); 
 }
 
 .product_title {
